@@ -1,0 +1,13 @@
+name: Trigger Daily Data Export
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run every day at midnight UTC (adjust as needed)
+
+jobs:
+  trigger-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger script on server
+        run: |
+          curl -X GET https://www.yourfullstack.com/apps/iprooflog/daily_db_trigger.php
